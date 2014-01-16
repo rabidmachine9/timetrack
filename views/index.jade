@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  span(class="col-xs-12" id="top-bar")
+    button(type="button" class="col-xs-12 btn btn-default new-task") Create new task
+  #tasks
+    each task in tasks
+      span(class="col-xs-12 col-md-6 col-lg-3 task-container" )
+        span(class="col-xs-12 col-md-10 col-md-offset-1 task" id=""+task._id data-taskid=""+task._id)
+          span(class="name col-xs-4" contenteditable="true") #{task.name}
+          span(class="col-xs-6")
+            button(class="btn btn-success btn-xs") start
+            span(class="time" id="timer_"+task._id) #{task.seconds}
+          span(class="col-xs-2")
+            span(class="glyphicon glyphicon-remove delete-button")
+            span(class="glyphicon glyphicon-refresh reset-button")

@@ -1,0 +1,25 @@
+doctype html
+html
+  head
+    title= timetrack
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css')
+  body
+    block content
+    script(type='text/javascript', src="http://code.jquery.com/jquery-1.10.1.min.js")
+    script(type='text/javascript', src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js")
+    script(type='text/javascript', src="/socket.io/socket.io.js")
+    script(type='text/javascript', src="/javascripts/template-format.js")
+    script(type='text/javascript', src="/javascripts/unique-hash.js")      
+    script(type='text/javascript', src="/javascripts/timetrack.js")
+    script(type='text/javascript', src="/javascripts/stopwatch.js")
+    script(type='text/template', id="task-template")
+      span(class="col-xs-12 col-md-6 col-lg-3 task-container" )
+        span(class="col-xs-12 col-md-10 col-md-offset-1 task" id="{0}" data-taskid="{0}")
+          span(class="name col-xs-4" contenteditable="true") task
+          span(class="col-xs-6")
+            button(class="btn btn-success btn-xs") start
+            span(class="time" id="timer_{0}") 00:00:00
+          span(class="col-xs-2")
+            span(class="glyphicon glyphicon-remove delete-button")
+            span(class="glyphicon glyphicon-refresh reset-button")
